@@ -1,0 +1,51 @@
+<%= link_to 'Create New Color', new_color_path %><br><br>
+
+<% if @colors != nil %>
+<table width='900px'>
+	<tr>
+		<td>
+			ID
+		</td>
+		<td>
+			Display Name
+		</td> 
+		<td>
+			Hex Code
+		</td> 
+		<td>
+			Odds
+		</td> 
+	</tr>
+	
+
+<% @colors.each do |c| %>
+
+	<tr>
+		
+			
+		
+		<td>
+			<%= c.id %>
+		</td>
+		<td>
+			<%= c.display_name %>
+		</td>
+		<td>
+			<%= c.hex_code %>
+		</td>
+		<td>
+			<%= c.odds %>
+	</tr>
+	<tr>
+		<td>
+			<%= link_to 'Edit', edit_color_path(c)%>
+		</td>
+		<td>
+			<%= link_to 'Delete', color_path(c), :method => :delete%>
+		</td>
+	</tr>
+<% end %>
+	</table>
+<% else %>
+ No Colors Yet!
+ <% end %>

@@ -1,0 +1,26 @@
+<% @weapons.each do |w| %>
+<%= w.display_name %>
+<br>
+Damage: <%= w.min_damage %> - <%= w.max_damage %>
+<br>
+Speed Decrease: <%= w.min_speed %> - <%= w.max_speed %>
+<br>
+Block: <%= w.min_block %> - <%= w.max_block %>
+<br>
+Cost: <%= w.buy %>
+<br>
+Resale Value: <%= w.sell %>
+<br><br>
+
+<% if current_user.gold >= w.buy %>
+<%= link_to 'Buy', buy_weapon_path(w) %> 
+<% else %>
+Buy
+<% end %>
+
+| <%= link_to 'No Thanks', weapon_path(w), :method => :delete %>
+<br><br>
+
+<% end %>
+<br>
+<%= link_to 'Try Again', weapons_path, :method => :post %>

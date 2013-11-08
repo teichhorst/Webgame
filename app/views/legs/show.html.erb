@@ -1,0 +1,24 @@
+<% @legs.each do |l| %>
+<%= l.display_name %>
+<br>
+Speed Decrease: <%= l.min_speed %> - <%= l.max_speed %>
+<br>
+Block: <%= l.min_block %> - <%= l.max_block %>
+<br>
+Cost: <%=l.buy %>
+<br>
+Resale Value: <%= l.sell %>
+<br><br>
+
+<% if current_user.gold >= l.buy %>
+<%= link_to 'Buy', buy_leg_path(l) %> 
+<% else %>
+Buy
+<% end %>
+
+| <%= link_to 'No Thanks', leg_path(l), :method => :delete %>
+<br><br>
+
+<% end %>
+<br>
+<%= link_to 'Try Again', legs_path, :method => :post %>

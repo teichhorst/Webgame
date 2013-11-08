@@ -1,0 +1,11 @@
+<%= form_for @color do |c| %>
+  
+    Display Name: <%= c.text_field :display_name, :placeholder => "Name that people will see..." %>
+    
+    Hex Code: <%= c.text_field :hex_code, :placeholder => "Example: #f7y7dy" %><br>
+    
+    Odds: <%= c.text_field :odds, :placeholder => "1 - 1000000" %><br>
+    
+  <%= c.submit "Create Color", :color => @color, :class => "btn btn-large btn-primary" %>
+
+<% end %>

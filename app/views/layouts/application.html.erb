@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>WebGame2</title>
+  <%= stylesheet_link_tag    "application", :media => "all" %>
+  <%= javascript_include_tag "application" %>
+  <%= csrf_meta_tags %>
+</head>
+
+<body>
+<div class='container'>
+
+<% if signed_in? %>	
+<div class='header'>
+	<div class='header_location'>
+		<div class='header_title'>
+			Location
+		</div>
+		<%= link_to(city_path(current_user.city)) do %>
+			<div class='button_directory'>
+			</div>
+		<% end %>
+		<%= link_to(cities_path) do %>
+			<div class='button_travel'>
+			</div>
+		<% end %>
+	</div>
+	
+	<div class='header_user'>
+		<div class='header_title'>
+			<%= current_user.display_name %>
+		</div>
+		<%= link_to(root_path) do %>
+			<div class='button_inventory'>
+			</div>
+		<% end %>
+		
+		<%= link_to(boxes_path) do %>
+			<div class='button_capsules'>
+			</div>
+		<% end %>
+		
+			<div class='button_missions'>
+			</div>
+		
+		<%= link_to(destroy_user_session_path, :method => :delete) do %>
+			<div class='button_logout'>
+			</div>
+		<% end %>
+	</div>
+	
+	<div class='header_rooms'>
+		<div class='header_title'>
+			Rooms
+		</div>
+		<%= link_to(city_path(current_user.city)) do %>
+			<div class='button_steal'>
+			</div>
+		<% end %>
+		<%= link_to(rooms_path) do %>
+			<div class='button_rooms'>
+			</div>
+		<% end %>
+	</div>
+</div>
+<% end %>
+
+<p class='notice'><%= notice %></p>
+<p class='alert'><%= alert %></p>
+
+<%= yield %>
+
+</div>
+</body>
+</html>

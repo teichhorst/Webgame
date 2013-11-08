@@ -1,0 +1,100 @@
+<%= link_to 'Create New Guard', new_list_guard_path %><br><br>
+
+<% if @list_guards != nil %>
+<table width='900px'>
+	<tr>
+		<td>
+			ID
+		</td>
+		<td>
+			Display Name
+		</td> 
+		<td>
+			Description
+		</td> 
+		<td>
+			Min Speed
+		</td> 
+		<td>
+			Max Speed
+		</td> 
+		<td>
+			Min Damage
+		</td> 
+		<td>
+			Max Damage
+		</td> 
+		<td>
+			Min Block
+		</td> 
+		<td>
+			Max Block
+		</td> 
+		<td>
+			Health
+		</td> 
+		<td>
+			Odds
+		</td> 
+		<td>
+			Image
+		</td>
+	</tr>
+	
+
+<% @list_guards.each do |g| %>
+
+	<tr>
+		
+			
+		
+		<td>
+			<%= g.id %>
+		</td>
+		<td>
+			<%= g.display_name %>
+		</td> 
+		<td>
+			<%= g.description %>
+		</td> 
+		<td>
+			<%= g.min_speed %>
+		</td> 
+		<td>
+			<%= g.max_speed %>
+		</td> 
+		<td>
+			<%= g.min_damage %>
+		</td> 
+		<td>
+			<%= g.max_damage %>
+		</td> 
+		<td>
+			<%= g.min_block %>
+		</td> 
+		<td>
+			<%= g.max_block %>
+		</td> 
+		<td>
+			<%= g.health %>
+		</td> 
+		<td>
+			<%= g.odds %>
+		</td> 
+		<td>
+			<%= image_tag g.guard_image %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= link_to 'Edit', edit_list_guard_path(g)%>
+		</td>
+		<td>
+			<%= link_to 'Delete', list_guard_path(g), :method => :delete%>
+		</td>
+	</tr>
+<% end %>
+	</table>
+<% else %>
+ No Guards Yet!
+ <% end %>

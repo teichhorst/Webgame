@@ -1,0 +1,24 @@
+<% @heads.each do |h| %>
+<%= h.display_name %>
+<br>
+Speed Decrease: <%= h.min_speed %> - <%= h.max_speed %>
+<br>
+Block: <%= h.min_block %> - <%= h.max_block %>
+<br>
+Cost: <%=h.buy %>
+<br>
+Resale Value: <%= h.sell %>
+<br><br>
+
+<% if current_user.gold >= h.buy %>
+<%= link_to 'Buy', buy_head_path(h) %> 
+<% else %>
+Buy
+<% end %>
+
+| <%= link_to 'No Thanks', head_path(h), :method => :delete %>
+<br><br>
+
+<% end %>
+<br>
+<%= link_to 'Try Again', heads_path, :method => :post %>

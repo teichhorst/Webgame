@@ -1,0 +1,29 @@
+<% @guards.each do |g| %>
+<%= g.display_name %>
+<br>
+<%= image_tag g.list_guard.guard_image %><br>
+Health: <%= g.health %>
+<br>
+Damage: <%= g.min_damage %> - <%= g.max_damage %>
+<br>
+Speed: <%= g.min_speed %> - <%= g.max_speed %>
+<br>
+Block: <%= g.min_block %> - <%= g.max_block %>
+<br>
+Cost: <%= g.buy %>
+<br>
+Resale Value: <%= g.sell %>
+<br><br>
+
+<% if current_user.gold >= g.buy %>
+<%= link_to 'Buy', buy_guard_path(g) %> 
+<% else %>
+Buy
+<% end %>
+
+| <%= link_to 'No Thanks', guard_path(g), :method => :delete %>
+<br><br>
+
+<% end %>
+<br>
+<%= link_to 'Try Again', guards_path, :method => :post %>

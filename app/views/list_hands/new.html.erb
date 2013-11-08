@@ -1,0 +1,19 @@
+<%= form_for @list_hand, :html => { :multipart => true } do |g| %>
+  
+    Display Name: <%= g.text_field :display_name, :placeholder => "Name that people will see..." %>
+    Description: <%= g.text_area :description, :placeholder => "A paragraph about the hand item..." %><br>
+    
+    Minimum Block Roll: <%= g.text_field :min_block, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Block Roll: <%= g.text_field :max_block, :placeholder => "Must be higher than min!" %><br>
+    Minimum Damage Roll: <%= g.text_field :min_damage, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Damage Roll: <%= g.text_field :max_damage, :placeholder => "Must be higher than min!" %><br>
+    Minimum Speed Roll: <%= g.text_field :min_speed, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Speed Roll: <%= g.text_field :max_speed, :placeholder => "Must be higher than min!" %><br>
+    
+    Odds: <%= g.text_field :odds, :placeholder => "1 - 1000000" %><br>
+    
+    Image: <%= g.file_field :hand_image %>
+    
+  <%= g.submit "Create Hand Item", :list_hand => @list_hand, :class => "btn btn-large btn-primary" %>
+
+<% end %>

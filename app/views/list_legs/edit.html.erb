@@ -1,0 +1,16 @@
+<%= form_for @list_leg, :html => { :multipart => true } do |l| %>
+  
+    Display Name: <%= l.text_field :display_name, :placeholder => "Name that people will see..." %>
+    Description: <%= l.text_area :description, :placeholder => "A paragraph about the leg..." %><br>
+    Minimum Block Roll: <%= l.text_field :min_block, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Block Roll: <%= l.text_field :max_block, :placeholder => "Must be higher than min!" %><br>
+    Minimum Speed Roll: <%= l.text_field :min_speed, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Speed Roll: <%= l.text_field :max_speed, :placeholder => "Must be higher than min!" %><br>
+    
+    Odds: <%= l.text_field :odds, :placeholder => "1 - 1000000" %><br>
+    
+    Image: <%= l.file_field :leg_image %>
+    
+  <%= l.submit "Save Changes", :list_leg => @list_leg, :class => "btn btn-large btn-primary" %>
+
+<% end %>

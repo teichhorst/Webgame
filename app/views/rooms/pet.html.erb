@@ -1,0 +1,42 @@
+<%= link_to 'Back to rooms', rooms_path %><br><br>
+
+
+
+<% @pets.each do |p| %>
+
+<% if p.room == nil%>
+<%= p.display_name %>
+<br>
+Health: <%= p.health %>
+<br>
+Damage: <%= p.min_damage %> - <%= p.max_damage %>
+<br>
+Speed: <%= p.min_speed %> - <%= p.max_speed %>
+<br>
+Block: <%= p.min_block %> - <%= p.max_block %>
+<br>
+<%= link_to 'Assign to this room', change_room_pet_path(p, :room_to_equip => @room) %>
+
+<% else %>
+
+<%= p.display_name %>
+<br>
+Health: <%= p.health %>
+<br>
+Damage: <%= p.min_damage %> - <%= p.max_damage %>
+<br>
+Speed: <%= p.min_speed %> - <%= p.max_speed %>
+<br>
+Block: <%= p.min_block %> - <%= p.max_block %>
+<br>
+Currently stationed in Room <%= p.room.id %>
+<br>
+<% if p.room == @room %>
+<%= link_to 'Unassign Pet', discard_room_pet_path(p, :room_to_equip => @room) %>
+<% end %>
+
+<% end %>
+
+<br>
+<br>
+<% end %>

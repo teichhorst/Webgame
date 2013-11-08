@@ -1,0 +1,22 @@
+<%= link_to 'Back to Inventory', root_path %><br><br>
+
+<% @traps.each do |t| %>
+
+<%= t.description %>
+<br>
+Health: <%= t.health %>
+<br>
+Damage: <%= t.min_damage %> - <%= t.max_damage %>
+<br>
+Speed: <%= t.min_speed %> - <%= t.max_speed %>
+<br>
+Block: <%= t.min_block %> - <%= t.max_block %>
+<br>
+Bought for: <%= t.buy %><br>
+Resale Value: <%= t.sell%><br>
+
+<%= link_to 'Sell', sell_trap_path(t) %>
+
+<br>
+<Br>
+<% end %>

@@ -1,0 +1,13 @@
+<%= link_to 'Back to Inventory', root_path %><br><br>
+
+<% @complexes.each do |co| %>
+
+<%= co.description %>
+<br>
+<%= co.rooms.count %>
+<br>
+<%= co.city.display_name%>
+
+
+<Br>
+<% end %>

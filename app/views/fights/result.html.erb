@@ -1,0 +1,44 @@
+You attempted to steal from a room owned by <%= @fight.room_user_name %><br><br>
+
+<%= link_to 'Go back to the complex directory', city_path(current_user.city)%><br><br>
+
+<%= @fight.description %>
+<br>
+<br>
+Summary<Br><br>
+
+<% if @fight.guard_total > 0 and @fight.guard_name != nil %>
+	The guard in the room, The <%= @fight.guard_name %>, rolled <%= @fight.guard_total %> less than you!
+<% end %>
+<% if @fight.guard_total < 0 and @fight.guard_name != nil %>
+	The guard in the room, The <%= @fight.guard_name %>, managed to roll <%= @fight.guard_total.abs %> more than you.
+<% end %>
+<% if @fight.guard_total == 0 and @fight.guard_name != nil %>
+	The guard in the room, The <%= @fight.guard_name %>, managed to roll the same you.
+<% end %>
+<br>
+<% if @fight.pet_total > 0 and @fight.pet_name != nil %>
+	The pet in the room, The <%= @fight.pet_name %>, rolled <%= @fight.pet_total %> less than you!
+<% end %>
+<% if @fight.pet_total < 0 and @fight.pet_name != nil %>
+	The pet in the room, The <%= @fight.pet_name %>, managed to roll <%= @fight.pet_total.abs %> more than you.
+<% end %>
+<% if @fight.pet_total == 0 and @fight.pet_name != nil %>
+	The pet in the room, The <%= @fight.pet_name %>, managed to roll the same you.
+<% end %>
+<br>
+<% if @fight.trap_total > 0 and @fight.trap_name != nil %>
+	The trap in the room, The <%= @fight.trap_name %>, rolled <%= @fight.trap_total %> less than you!
+<% end %>
+<% if @fight.trap_total < 0 and @fight.trap_name != nil %>
+	The trap in the room, The <%= @fight.trap_name %>, managed to roll <%= @fight.trap_total.abs %> more than you.
+<% end %>
+<% if @fight.trap_total == 0 and @fight.trap_name != nil %>
+	The trap in the room, The <%= @fight.trap_name %>, managed to roll the same you.
+<% end %>
+
+<% if @fight.guard_name == nil and @fight.pet_name == nil and @fight.trap_name == nil %>
+	Well, there was no guard, pet or trap.  That isn't fun, doubt you'll find much in that capsule now will you?
+<% end %>
+		
+

@@ -1,0 +1,23 @@
+<%= link_to 'Back to Inventory', root_path %><br><br>
+
+<% @rings.each do |r| %>
+
+<%= r.display_name %>
+<br>
+Damage: <%= r.min_damage %> - <%= r.max_damage %>
+<br>
+Speed Increase: <%= r.min_speed %> - <%= r.max_speed %>
+<br>
+Block: <%= r.min_block %> - <%= r.max_block %>
+<br>
+Bought for: <%= r.buy %><br>
+Resale Value: <%= r.sell%><br>
+<%= link_to 'Equip', equip_ring_path(r) %>
+<% if r.active == true %>
+| <%= link_to 'Unequip', unequip_ring_path(r) %>
+<% end %><br>
+<%= link_to 'Sell', sell_ring_path(r) %>
+
+<br>
+<Br>
+<% end %>

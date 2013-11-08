@@ -1,0 +1,28 @@
+<%= link_to 'Back to Inventory', root_path %><br><br>
+
+<% if @boxes != nil %>
+
+<% @boxes.each do |b| %>
+
+<%= b.display_name %><br>
+
+<% if b.loser != nil%>
+Stolen from <%= b.loser_name %>
+<% end %>
+
+<% if b.bought_at_shop == true %>
+Bought at Shop
+<% end %>
+
+
+<br>
+
+<%= link_to 'Open this capsule', open_box_path(b) %>
+
+
+
+<% end %>
+
+<% else %>
+No capsules.
+<% end %>

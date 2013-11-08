@@ -1,0 +1,26 @@
+<% @sidearms.each do |s| %>
+<%= s.display_name %>
+<br>
+Damage: <%= s.min_damage %> - <%= s.max_damage %>
+<br>
+Speed Decrease: <%= s.min_speed %> - <%= s.max_speed %>
+<br>
+Block: <%= s.min_block %> - <%= s.max_block %>
+<br>
+Cost: <%=s.buy %>
+<br>
+Resale Value: <%= s.sell %>
+<br><br>
+
+<% if current_user.gold >= s.buy %>
+<%= link_to 'Buy', buy_sidearm_path(s) %> 
+<% else %>
+Buy
+<% end %>
+
+| <%= link_to 'No Thanks', sidearm_path(s), :method => :delete %>
+<br><br>
+
+<% end %>
+<br>
+<%= link_to 'Try Again', sidearms_path, :method => :post %>

@@ -1,0 +1,16 @@
+<%= form_for @list_chest, :html => { :multipart => true } do |c| %>
+  
+    Display Name: <%= c.text_field :display_name, :placeholder => "Name that people will see..." %>
+    Description: <%= c.text_area :description, :placeholder => "A paragraph about the chest..." %><br>
+    Minimum Block Roll: <%= c.text_field :min_block, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Block Roll: <%= c.text_field :max_block, :placeholder => "Must be higher than min!" %><br>
+    Minimum Speed Roll: <%= c.text_field :min_speed, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Speed Roll: <%= c.text_field :max_speed, :placeholder => "Must be higher than min!" %><br>
+    
+    Odds: <%= c.text_field :odds, :placeholder => "1 - 1000000" %><br>
+    
+    Image: <%= c.file_field :chest_image %>
+    
+  <%= c.submit "Save Changes", :list_chest => @list_chest, :class => "btn btn-large btn-primary" %>
+
+<% end %>

@@ -1,0 +1,21 @@
+<%= link_to 'Back to Inventory', root_path %><br><br>
+
+<% @legs.each do |l| %>
+
+<%= l.description %>
+<br>
+Speed Decrease: <%= l.min_speed %> - <%= l.max_speed %>
+<br>
+Block: <%= l.min_block %> - <%= l.max_block %>
+<br>
+Bought for: <%= l.buy %><br>
+Resale Value: <%= l.sell%><br>
+<%= link_to 'Equip', equip_leg_path(l) %>
+<% if l.active == true %>
+| <%= link_to 'Unequip', unequip_leg_path(l) %>
+<% end %><br>
+<%= link_to 'Sell', sell_leg_path(l) %>
+
+<br>
+<Br>
+<% end %>

@@ -1,0 +1,23 @@
+<%= link_to 'Back to Inventory', root_path %><br><br>
+
+<% @sidearms.each do |s| %>
+
+<%= s.description %>
+<br>
+Damage: <%= s.min_damage %> - <%= s.max_damage %>
+<br>
+Speed Decrease: <%= s.min_speed %> - <%= s.max_speed %>
+<br>
+Block: <%= s.min_block %> - <%= s.max_block %>
+<br>
+Bought for: <%= s.buy %><br>
+Resale Value: <%= s.sell%><br>
+<%= link_to 'Equip', equip_sidearm_path(s) %>
+<% if s.active == true %>
+| <%= link_to 'Unequip', unequip_sidearm_path(s) %>
+<% end %><br>
+<%= link_to 'Sell', sell_sidearm_path(s) %>
+
+<br>
+<Br>
+<% end %>

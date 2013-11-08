@@ -1,0 +1,19 @@
+<%= form_for @list_pet, :html => { :multipart => true } do |p| %>
+  
+    Display Name: <%= p.text_field :display_name, :placeholder => "Name that people will see..." %>
+    Description: <%= p.text_area :description, :placeholder => "A paragraph about the pet..." %><br>
+    Health: <%= p.text_field :health, :placeholder => "Health pet will start with." %><br>
+    Minimum Block Roll: <%= p.text_field :min_block, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Block Roll: <%= p.text_field :max_block, :placeholder => "Must be higher than min!" %><br>
+    Minimum Damage Roll: <%= p.text_field :min_damage, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Damage Roll: <%= p.text_field :max_damage, :placeholder => "Must be higher than min!" %><br>
+    Minimum Speed Roll: <%= p.text_field :min_speed, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Speed Roll: <%= p.text_field :max_speed, :placeholder => "Must be higher than min!" %><br>
+    
+    Odds: <%= p.text_field :odds, :placeholder => "1 - 1000000" %><br>
+    
+    Image: <%= p.file_field :pet_image %>
+    
+  <%= p.submit "Create pet", :list_pet => @list_pet, :class => "btn btn-large btn-primary" %>
+
+<% end %>

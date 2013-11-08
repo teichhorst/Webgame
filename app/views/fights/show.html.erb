@@ -1,0 +1,114 @@
+
+<div class='fight_user_container'>
+	<div class='fight_user_stats'>
+		Health: <%= @fight.user_health %>
+		Stamina: <%= @fight.user_stamina %>
+	</div>
+	<div class='fight_user_text'>
+		<% @fight.moves.each do |m| %>
+		<%= m.description %>
+		<br>
+		<% end %>
+		<br>
+		<%= @fight.opening %>
+	</div>
+	
+	<br><br>
+<div class="fight_enemy_container">
+	<%= link_to 'Defend', challenge_fight_path(:id => @fight, :strategy => 'defend') %> | <%= link_to 'Rest', challenge_fight_path(:id => @fight, :strategy => 'rest')%>
+	| <%= link_to 'Dodge', challenge_fight_path(:id => @fight, :strategy => 'dodge')%>
+<div class='fight_guard_container'>
+	<% if @fight.room.guard != nil %>
+	
+	<%= @fight.room.guard.display_name %><br>
+	<% if @fight.guard_defeated == true %>
+	<strong>Defeated</strong>
+	<% else %>
+	<%= @fight.guard_health %>
+	<% end %>
+	<br>
+	Damage: <%= @fight.room.guard.min_damage %> - <%= @fight.room.guard.max_damage %>
+	<br>
+	Speed: <%= @fight.room.guard.min_speed %> - <%= @fight.room.guard.max_speed %>
+	<br>
+	Block: <%= @fight.room.guard.min_block %> - <%= @fight.room.guard.max_block %>
+	<br>
+	Stamina: <%= @fight.guard_stamina %><br>
+	
+	
+	
+	<% if @fight.guard_defeated == nil %>
+	<%= link_to 'Weapon Attack', challenge_fight_path(:opponent_id => @fight.room.guard.id, :id => @fight, :type => 'guard', :strategy => 'weapon_attack') %><br>
+	<%= link_to 'Sidearm Attack', challenge_fight_path(:opponent_id => @fight.room.guard.id, :id => @fight, :type => 'guard', :strategy => 'sidearm_attack') %><br>
+	<%= link_to 'Parry', challenge_fight_path(:opponent_id => @fight.room.guard.id, :id => @fight, :type => 'guard', :strategy => 'parry') %><br>
+	<% end %>
+	<br><br>
+	<% end %>
+</div>
+
+<div class='fight_pet_container'>
+	<% if @fight.room.pet != nil %>
+	<div class="fight_enemy_container">
+	<%= @fight.room.pet.display_name %><br>
+	<% if @fight.pet_defeated == true %>
+	<strong>Defeated</strong>
+	<% else %>
+	<%= @fight.pet_health %>
+	<% end %>
+	<br>
+	Damage: <%= @fight.room.pet.min_damage %> - <%= @fight.room.pet.max_damage %>
+	<br>
+	Speed: <%= @fight.room.pet.min_speed %> - <%= @fight.room.pet.max_speed %>
+	<br>
+	Block: <%= @fight.room.pet.min_block %> - <%= @fight.room.pet.max_block %><br>
+	
+	Stamina: <%= @fight.pet_stamina %><br>
+	
+	<% if @fight.pet_defeated == nil %>
+	<%= link_to 'Weapon Attack', challenge_fight_path(:opponent_id => @fight.room.pet.id, :id => @fight, :type => 'pet', :strategy => 'weapon_attack') %><br>
+	<%= link_to 'Sidearm Attack', challenge_fight_path(:opponent_id => @fight.room.pet.id, :id => @fight, :type => 'pet', :strategy => 'sidearm_attack') %><br>
+	<%= link_to 'Parry', challenge_fight_path(:opponent_id => @fight.room.pet.id, :id => @fight, :type => 'pet', :strategy => 'parry') %><br>
+	<% end %>
+	</div>
+	<br><br>
+	<% end %>
+</div>
+
+<div class='fight_trap_container'>
+	<% if @fight.room.trap != nil %>
+	<div class="fight_enemy_container">
+	<%= @fight.room.trap.display_name %><br>
+	
+	<% if @fight.trap_defeated == true %>
+	<strong>Defeated</strong>
+	<% else %>
+	<%= @fight.trap_health %>
+	<% end %>
+	<br>
+	Damage: <%= @fight.room.trap.min_damage %> - <%= @fight.room.trap.max_damage %>
+	<br>
+	Speed: <%= @fight.room.trap.min_speed %> - <%= @fight.room.trap.max_speed %>
+	<br>
+	Block: <%= @fight.room.trap.min_block %> - <%= @fight.room.trap.max_block %><br>
+	
+	Stamina: <%= @fight.trap_stamina %><br>
+	
+	<% if @fight.trap_defeated == nil %>
+	<%= link_to 'Weapon Attack', challenge_fight_path(:opponent_id => @fight.room.trap.id, :id => @fight, :type => 'trap', :strategy => 'weapon_attack') %><br>
+	<%= link_to 'Sidearm Attack', challenge_fight_path(:opponent_id => @fight.room.trap.id, :id => @fight, :type => 'trap', :strategy => 'sidearm_attack') %><br>
+	<%= link_to 'Parry', challenge_fight_path(:opponent_id => @fight.room.trap.id, :id => @fight, :type => 'trap', :strategy => 'parry') %><br>
+	<% end %>
+	</div>
+	<br><br>
+	<% end %>
+</div>
+
+<div class='fight_description'>
+	<% if @fight.fought == true %>
+	<%= @fight.description %>
+	<% end %>
+</div>
+</div>
+
+<br><br>
+

@@ -1,0 +1,24 @@
+<% @furnishings.each do |f| %>
+<%= f.display_name %>
+<br>
+
+
+Cost: <%= f.buy %>
+<br>
+Resale Value: <%= f.sell %>
+<br>
+Added Room Value: <%= f.worth %>
+<br>
+
+<% if current_user.gold >= f.buy %>
+<%= link_to 'Buy', buy_furnishing_path(f) %> 
+<% else %>
+Buy
+<% end %>
+
+| <%= link_to 'No Thanks', furnishing_path(f), :method => :delete %>
+<br><br>
+
+<% end %>
+<br>
+<%= link_to 'Try Again', furnishings_path, :method => :post %>

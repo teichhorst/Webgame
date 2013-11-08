@@ -1,0 +1,18 @@
+<%= form_for @list_sidearm, :html => { :multipart => true } do |s| %>
+  
+    Display Name: <%= s.text_field :display_name, :placeholder => "Name that people will see..." %>
+    Description: <%= s.text_area :description, :placeholder => "A paragraph about the sidearm..." %><br>
+    Minimum Block Roll: <%= s.text_field :min_block, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Block Roll: <%= s.text_field :max_block, :placeholder => "Must be higher than min!" %><br>
+    Minimum Damage Roll: <%= s.text_field :min_damage, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Damage Roll: <%= s.text_field :max_damage, :placeholder => "Must be higher than min!" %><br>
+    Minimum Speed Roll: <%= s.text_field :min_speed, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Speed Roll: <%= s.text_field :max_speed, :placeholder => "Must be higher than min!" %><br>
+    
+    Odds: <%= s.text_field :odds, :placeholder => "1 - 1000000" %><br>
+    
+    Image: <%= s.file_field :sidearm_image %>
+    
+  <%= s.submit "Create sidearm", :list_sidearm => @list_sidearm, :class => "btn btn-large btn-primary" %>
+
+<% end %>

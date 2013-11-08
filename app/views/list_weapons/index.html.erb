@@ -1,0 +1,94 @@
+<%= link_to 'Create New weapon', new_list_weapon_path %><br><br>
+
+<% if @list_weapons != nil %>
+<table width='900px'>
+	<tr>
+		<td>
+			ID
+		</td>
+		<td>
+			Display Name
+		</td> 
+		<td>
+			Description
+		</td> 
+		<td>
+			Min Speed
+		</td> 
+		<td>
+			Max Speed
+		</td> 
+		<td>
+			Min Damage
+		</td> 
+		<td>
+			Max Damage
+		</td> 
+		<td>
+			Min Block
+		</td> 
+		<td>
+			Max Block
+		</td> 
+		<td>
+			Odds
+		</td> 
+		<td>
+			Image
+		</td>
+	</tr>
+	
+
+<% @list_weapons.each do |w| %>
+
+	<tr>
+		
+			
+		
+		<td>
+			<%= w.id %>
+		</td>
+		<td>
+			<%= w.display_name %>
+		</td> 
+		<td>
+			<%= w.description %>
+		</td> 
+		<td>
+			<%= w.min_speed %>
+		</td> 
+		<td>
+			<%= w.max_speed %>
+		</td> 
+		<td>
+			<%= w.min_damage %>
+		</td> 
+		<td>
+			<%= w.max_damage %>
+		</td> 
+		<td>
+			<%= w.min_block %>
+		</td> 
+		<td>
+			<%= w.max_block %>
+		</td>
+		<td>
+			<%= w.odds %>
+		</td> 
+		<td>
+			<%= image_tag w.weapon_image %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= link_to 'Edit', edit_list_weapon_path(w)%>
+		</td>
+		<td>
+			<%= link_to 'Delete', list_weapon_path(w), :method => :delete%>
+		</td>
+	</tr>
+<% end %>
+	</table>
+<% else %>
+ No weapons Yet!
+ <% end %>

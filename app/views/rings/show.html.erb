@@ -1,0 +1,26 @@
+<% @rings.each do |r| %>
+<%= r.display_name %>
+<br>
+Damage: <%= r.min_damage %> - <%= r.max_damage %>
+<br>
+Speed Increase: <%= r.min_speed %> - <%= r.max_speed %>
+<br>
+Block: <%= r.min_block %> - <%= r.max_block %>
+<br>
+Cost: <%=r.buy %>
+<br>
+Resale Value: <%= r.sell %>
+<br><br>
+
+<% if current_user.gold >= r.buy %>
+<%= link_to 'Buy', buy_ring_path(r) %> 
+<% else %>
+Buy
+<% end %>
+
+| <%= link_to 'No Thanks', ring_path(r), :method => :delete %>
+<br><br>
+
+<% end %>
+<br>
+<%= link_to 'Try Again', rings_path, :method => :post %>

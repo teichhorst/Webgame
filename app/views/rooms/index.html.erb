@@ -1,0 +1,42 @@
+
+
+<%= link_to 'Back to inventory', root_path %><br>
+
+<% @rooms.each do |r| %>
+<Br>
+Room Number <%= r.id %><br>
+Complex: <%= r.complex.display_name %><br>
+City: <%= r.complex.city.display_name %><br>
+
+<% if r.guard == nil %>
+No Guard Assigned<br>
+<%= link_to 'Add a guard', view_room_guard_path(r) %>
+<% else %>
+Current Guard: <%= r.guard.display_name %><br>
+<%= link_to 'Change guard', view_room_guard_path(r) %>
+<% end %>
+<br>
+<% if r.pet == nil %>
+No Pet Assigned<br>
+<%= link_to 'Add a pet', view_room_pet_path(r) %>
+<% else %>
+Current Pet: <%= r.pet.display_name %><br>
+<%= link_to 'Change pet', view_room_pet_path(r) %>
+<% end %>
+<br>
+<% if r.trap == nil %>
+No Trap Assigned<br>
+<%= link_to 'Add a trap', view_room_trap_path(r) %>
+<% else %>
+Current Trap: <%= r.trap.display_name %><br>
+<%= link_to 'Change trap', view_room_trap_path(r) %>
+<% end %>
+<br>
+
+
+<%= link_to 'Add furnishings', view_room_furnishing_path(r) %>
+
+<br>
+
+
+<% end %>

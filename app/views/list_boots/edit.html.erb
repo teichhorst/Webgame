@@ -1,0 +1,16 @@
+<%= form_for @list_boot, :html => { :multipart => true } do |b| %>
+  
+    Display Name: <%= b.text_field :display_name, :placeholder => "Name that people will see..." %>
+    Description: <%= b.text_area :description, :placeholder => "A paragraph about the boot..." %><br>
+    Minimum Block Roll: <%= b.text_field :min_block, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Block Roll: <%= b.text_field :max_block, :placeholder => "Must be higher than min!" %><br>
+    Minimum Speed Roll: <%= b.text_field :min_speed, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Speed Roll: <%= b.text_field :max_speed, :placeholder => "Must be higher than min!" %><br>
+    
+    Odds: <%= b.text_field :odds, :placeholder => "1 - 1000000" %><br>
+    
+    Image: <%= b.file_field :boot_image %>
+    
+  <%= b.submit "Save Changes", :list_boot => @list_boot, :class => "btn btn-large btn-primary" %>
+
+<% end %>

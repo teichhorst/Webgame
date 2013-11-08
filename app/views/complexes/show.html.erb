@@ -1,0 +1,23 @@
+<%= link_to 'Back to inventory', root_path %> | Back to <%= link_to @complex.city.display_name, @complex.city%>
+
+<% @complex.rooms.each do |ro| %>
+<br><br>
+ 
+<% if ro.user == current_user %>
+
+<%= ro.id %> | <%= link_to 'Sell', sell_room_path(ro)%> for <%= ro.sell %> | <%= link_to 'Edit Rooms', rooms_path %><br>
+Owned by you
+
+<% else %>
+
+<% if ro.user == nil%>
+<%= ro.id %> | <%= link_to 'Buy', buy_room_path(ro)%> for <%= ro.buy %> gold<br>
+Avaialable to Purchase
+<% else %>
+<%= ro.id %> | <%= link_to 'Steal from', fights_path(:room => ro), :method => :post %> <br> 
+Current Owner: <%= ro.user.display_name %>
+<% end %>
+
+<% end %>
+
+<% end %>

@@ -1,0 +1,131 @@
+// Place all the styles related to the users/users controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+// Color Variables
+
+$black:                 #000;
+$grayDarker:            #222;
+$grayDark:              #333 !default;
+$gray:                  #555 !default;
+$grayLight:             #999 !default;
+$grayLighter:           #eee !default;
+$white:                 #fff !default;
+
+.session_container {
+  margin-top: -200px;
+  width: 100%;
+}
+
+.title {
+  width: 1000px;
+  height: 650px;
+  margin: 40px auto 0 auto;
+  background: url('/assets/welcome.png') no-repeat;
+}
+
+.sign_in_title {
+  background: url('/assets/welcome.png') no-repeat;
+  height: 1080px;
+  width: 1000px;
+}
+
+.row {
+  width: 100%;
+  overflow: auto;
+  padding: 0 0;
+  margin: 5px auto;
+}
+
+.text_field {
+  background: #CCE2F4;
+  width: 186px;
+  padding: 5px;
+  color: #000;
+  border-color: $grayDark;
+  border-radius: 10px;
+}
+
+.email_input {
+  width: 200px;
+  height: 60px;
+  padding: 40px 5px 0 5px;
+  float: left;
+  margin: 10px 10px;
+  color: $grayDark;
+  font-weight: bold;
+  text-align: center;
+}
+
+.display_name_input {
+  width: 200px;
+  height: 60px;
+  padding: 40px 5px 0 5px;
+  float: left;
+  margin: 10px 10px;
+  color: $grayDark;
+  font-weight: bold;
+  text-align: center;
+}
+
+.password_input {
+  width: 200px;
+  height: 60px;
+  padding: 40px 5px 0 5px;
+  float: left;
+  margin: 10px 10px;
+  color: $grayDark;
+  font-weight: bold;
+  text-align: center;
+}
+
+.confirm_password_input {
+  width: 200px;
+  height: 60px;
+  padding: 40px 5px 0 5px;
+  float: left;
+  margin: 10px 10px;
+  color: $grayDark;
+  font-weight: bold;
+  text-align: center;
+}
+
+.sign_in_submit {
+  width: 220px;
+  padding: 0 10px;
+  float: left;
+  color: $grayDark;
+  font-weight: bold;
+}
+
+.sign_in_links {
+  width: 200px;
+  padding: 0 10px;
+  float: left;
+}
+
+.button {
+  width: 150px;
+  margin-top: 4px;
+  padding: 4px;
+  border: 1px solid #000;
+  color: #000;
+  background-color: #338AD4;
+  border-radius: 8px;
+  transition: background-color 1s;
+  -moz-transition: background-color 1s; /* Firefox 4 */
+  -webkit-transition: background-color 1s; /* Safari and Chrome */
+  -o-transition: background-color 1s; /* Opera */
+  color: #fff;
+}
+
+.button:hover {
+  border: 1px solid #000;
+  background-color: #003665;
+  transition: background-color 1s;
+  -moz-transition: background-color 1s; /* Firefox 4 */
+  -webkit-transition: background-color 1s; /* Safari and Chrome */
+  -o-transition: background-color 1s; /* Opera */
+
+}
+

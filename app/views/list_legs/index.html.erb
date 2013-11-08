@@ -1,0 +1,82 @@
+<%= link_to 'Create New leg', new_list_leg_path %><br><br>
+
+<% if @list_legs != nil %>
+<table width='900px'>
+	<tr>
+		<td>
+			ID
+		</td>
+		<td>
+			Display Name
+		</td> 
+		<td>
+			Description
+		</td> 
+		<td>
+			Min Speed
+		</td> 
+		<td>
+			Max Speed
+		</td> 
+		<td>
+			Min Block
+		</td> 
+		<td>
+			Max Block
+		</td> 
+		<td>
+			Odds
+		</td> 
+		<td>
+			Image
+		</td>
+	</tr>
+	
+
+<% @list_legs.each do |l| %>
+
+	<tr>
+		
+			
+		
+		<td>
+			<%= l.id %>
+		</td>
+		<td>
+			<%= l.display_name %>
+		</td> 
+		<td>
+			<%= l.description %>
+		</td> 
+		<td>
+			<%= l.min_speed %>
+		</td> 
+		<td>
+			<%= l.max_speed %>
+		</td>
+		<td>
+			<%= l.min_block %>
+		</td> 
+		<td>
+			<%= l.max_block %>
+		</td>
+		<td>
+			<%= l.odds %>
+		</td> 
+		<td>
+			<%= image_tag l.leg_image %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= link_to 'Edit', edit_list_leg_path(l)%>
+		</td>
+		<td>
+			<%= link_to 'Delete', list_leg_path(l), :method => :delete%>
+		</td>
+	</tr>
+<% end %>
+	</table>
+<% else %>
+ No legs Yet!
+ <% end %>

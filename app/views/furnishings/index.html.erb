@@ -1,0 +1,16 @@
+<%= link_to 'Back to Inventory', root_path %><br><br>
+<% @furnishings.each do |f| %>
+
+<%= f.display_name %>
+<br>
+Bought for: <%= f.buy %><br>
+Resale Value: <%= f.sell%><br>
+Added Room Value: <%= f.worth %>
+<%= link_to 'Sell', sell_furnishing_path(f) %>
+
+<br>
+<Br>
+<% end %>
+
+
+

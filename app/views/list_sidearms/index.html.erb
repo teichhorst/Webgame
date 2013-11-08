@@ -1,0 +1,94 @@
+<%= link_to 'Create New sidearm', new_list_sidearm_path %><br><br>
+
+<% if @list_sidearms != nil %>
+<table width='900px'>
+	<tr>
+		<td>
+			ID
+		</td>
+		<td>
+			Display Name
+		</td> 
+		<td>
+			Description
+		</td> 
+		<td>
+			Min Speed
+		</td> 
+		<td>
+			Max Speed
+		</td> 
+		<td>
+			Min Damage
+		</td> 
+		<td>
+			Max Damage
+		</td> 
+		<td>
+			Min Block
+		</td> 
+		<td>
+			Max Block
+		</td> 
+		<td>
+			Odds
+		</td> 
+		<td>
+			Image
+		</td>
+	</tr>
+	
+
+<% @list_sidearms.each do |s| %>
+
+	<tr>
+		
+			
+		
+		<td>
+			<%= s.id %>
+		</td>
+		<td>
+			<%= s.display_name %>
+		</td> 
+		<td>
+			<%= s.description %>
+		</td> 
+		<td>
+			<%= s.min_speed %>
+		</td> 
+		<td>
+			<%= s.max_speed %>
+		</td> 
+		<td>
+			<%= s.min_damage %>
+		</td> 
+		<td>
+			<%= s.max_damage %>
+		</td> 
+		<td>
+			<%= s.min_block %>
+		</td> 
+		<td>
+			<%= s.max_block %>
+		</td> 
+		<td>
+			<%= s.odds %>
+		</td> 
+		<td>
+			<%= image_tag s.sidearm_image %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= link_to 'Edit', edit_list_sidearm_path(s)%>
+		</td>
+		<td>
+			<%= link_to 'Delete', list_sidearm_path(s), :method => :delete%>
+		</td>
+	</tr>
+<% end %>
+	</table>
+<% else %>
+ No sidearms Yet!
+ <% end %>

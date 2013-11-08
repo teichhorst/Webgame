@@ -1,0 +1,100 @@
+<%= link_to 'Create New trap', new_list_trap_path %><br><br>
+
+<% if @list_traps != nil %>
+<table width='900px'>
+	<tr>
+		<td>
+			ID
+		</td>
+		<td>
+			Display Name
+		</td> 
+		<td>
+			Description
+		</td> 
+		<td>
+			Min Speed
+		</td> 
+		<td>
+			Max Speed
+		</td> 
+		<td>
+			Min Damage
+		</td> 
+		<td>
+			Max Damage
+		</td> 
+		<td>
+			Min Block
+		</td> 
+		<td>
+			Max Block
+		</td> 
+		<td>
+			Health
+		</td> 
+		<td>
+			Odds
+		</td> 
+		<td>
+			Image
+		</td>
+	</tr>
+	
+
+<% @list_traps.each do |t| %>
+
+	<tr>
+		
+			
+		
+		<td>
+			<%= t.id %>
+		</td>
+		<td>
+			<%= t.display_name %>
+		</td> 
+		<td>
+			<%= t.description %>
+		</td> 
+		<td>
+			<%= t.min_speed %>
+		</td> 
+		<td>
+			<%= t.max_speed %>
+		</td> 
+		<td>
+			<%= t.min_damage %>
+		</td> 
+		<td>
+			<%= t.max_damage %>
+		</td> 
+		<td>
+			<%= t.min_block %>
+		</td> 
+		<td>
+			<%= t.max_block %>
+		</td> 
+		<td>
+			<%= t.health %>
+		</td> 
+		<td>
+			<%= t.odds %>
+		</td> 
+		<td>
+			<%= image_tag t.trap_image %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= link_to 'Edit', edit_list_trap_path(t)%>
+		</td>
+		<td>
+			<%= link_to 'Delete', list_trap_path(t), :method => :delete%>
+		</td>
+	</tr>
+<% end %>
+	</table>
+<% else %>
+ No traps Yet!
+ <% end %>

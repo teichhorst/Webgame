@@ -1,0 +1,29 @@
+<%= link_to 'Back to rooms', rooms_path %><br><br>
+
+
+
+<% @furnishings.each do |f| %>
+
+<% if f.room == nil%>
+<%= f.display_name %>
+<br>
+<%= link_to 'Assign to this room', add_room_furnishing_path(f, :room_to_equip => @room) %>
+
+<% else %>
+
+<%= f.display_name %>
+<br>
+Currently setup in Room <%= f.room.id %>
+<br>
+<% if f.room == @room %>
+<%= link_to 'Unassign furnishing', discard_room_furnishing_path(f, :room_to_equip => @room) %>
+<% end %>
+
+<% end %>
+
+<br>
+<br>
+<% end %>
+
+
+

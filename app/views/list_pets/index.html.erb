@@ -1,0 +1,100 @@
+<%= link_to 'Create New pet', new_list_pet_path %><br><br>
+
+<% if @list_pets != nil %>
+<table width='900px'>
+	<tr>
+		<td>
+			ID
+		</td>
+		<td>
+			Display Name
+		</td> 
+		<td>
+			Description
+		</td> 
+		<td>
+			Min Speed
+		</td> 
+		<td>
+			Max Speed
+		</td> 
+		<td>
+			Min Damage
+		</td> 
+		<td>
+			Max Damage
+		</td> 
+		<td>
+			Min Block
+		</td> 
+		<td>
+			Max Block
+		</td> 
+		<td>
+			Health
+		</td> 
+		<td>
+			Odds
+		</td> 
+		<td>
+			Image
+		</td>
+	</tr>
+	
+
+<% @list_pets.each do |p| %>
+
+	<tr>
+		
+			
+		
+		<td>
+			<%= p.id %>
+		</td>
+		<td>
+			<%= p.display_name %>
+		</td> 
+		<td>
+			<%= p.description %>
+		</td> 
+		<td>
+			<%= p.min_speed %>
+		</td> 
+		<td>
+			<%= p.max_speed %>
+		</td> 
+		<td>
+			<%= p.min_damage %>
+		</td> 
+		<td>
+			<%= p.max_damage %>
+		</td> 
+		<td>
+			<%= p.min_block %>
+		</td> 
+		<td>
+			<%= p.max_block %>
+		</td> 
+		<td>
+			<%= p.health %>
+		</td> 
+		<td>
+			<%= p.odds %>
+		</td> 
+		<td>
+			<%= image_tag p.pet_image %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= link_to 'Edit', edit_list_pet_path(p)%>
+		</td>
+		<td>
+			<%= link_to 'Delete', list_pet_path(p), :method => :delete%>
+		</td>
+	</tr>
+<% end %>
+	</table>
+<% else %>
+ No pets Yet!
+ <% end %>

@@ -1,0 +1,9 @@
+<%= link_to 'Back to inventory', root_path %>
+
+<% @city.complexes.each do |co| %>
+<br><br>
+<%= co.display_name %>
+<br>
+<%= link_to 'Browse Rooms', complex_path(co)%>
+
+<% end %>

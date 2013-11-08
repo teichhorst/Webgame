@@ -1,0 +1,21 @@
+<%= link_to 'Back to Inventory', root_path %><br><br>
+
+<% @chests.each do |c| %>
+
+<%= c.description %>
+<br>
+Speed Decrease: <%= c.min_speed %> - <%= c.max_speed %>
+<br>
+Block: <%= c.min_block %> - <%= c.max_block %>
+<br>
+Bought for: <%= c.buy %><br>
+Resale Value: <%= c.sell%><br>
+<%= link_to 'Equip', equip_chest_path(c) %>
+<% if c.active == true %>
+| <%= link_to 'Unequip', unequip_chest_path(c) %>
+<% end %><br>
+<%= link_to 'Sell', sell_chest_path(c) %>
+
+<br>
+<Br>
+<% end %>

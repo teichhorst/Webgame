@@ -1,0 +1,21 @@
+<%= link_to 'Back to Inventory', root_path %><br><br>
+
+<% @heads.each do |h| %>
+
+<%= h.description %>
+<br>
+Speed Decrease: <%= h.min_speed %> - <%= h.max_speed %>
+<br>
+Block: <%= h.min_block %> - <%= h.max_block %>
+<br>
+Bought for: <%= h.buy %><br>
+Resale Value: <%= h.sell%><br>
+<%= link_to 'Equip', equip_head_path(h) %>
+<% if h.active == true %>
+| <%= link_to 'Unequip', unequip_head_path(h) %>
+<% end %><br>
+<%= link_to 'Sell', sell_head_path(h) %>
+
+<br>
+<Br>
+<% end %>

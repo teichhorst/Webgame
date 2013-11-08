@@ -1,0 +1,82 @@
+<%= link_to 'Create New head', new_list_head_path %><br><br>
+
+<% if @list_heads != nil %>
+<table width='900px'>
+	<tr>
+		<td>
+			ID
+		</td>
+		<td>
+			Display Name
+		</td> 
+		<td>
+			Description
+		</td> 
+		<td>
+			Min Speed
+		</td> 
+		<td>
+			Max Speed
+		</td> 
+		<td>
+			Min Block
+		</td> 
+		<td>
+			Max Block
+		</td> 
+		<td>
+			Odds
+		</td> 
+		<td>
+			Image
+		</td>
+	</tr>
+	
+
+<% @list_heads.each do |h| %>
+
+	<tr>
+		
+			
+		
+		<td>
+			<%= h.id %>
+		</td>
+		<td>
+			<%= h.display_name %>
+		</td> 
+		<td>
+			<%= h.description %>
+		</td> 
+		<td>
+			<%= h.min_speed %>
+		</td> 
+		<td>
+			<%= h.max_speed %>
+		</td>
+		<td>
+			<%= h.min_block %>
+		</td> 
+		<td>
+			<%= h.max_block %>
+		</td>  
+		<td>
+			<%= h.odds %>
+		</td> 
+		<td>
+			<%= image_tag h.head_image %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= link_to 'Edit', edit_list_head_path(h)%>
+		</td>
+		<td>
+			<%= link_to 'Delete', list_head_path(h), :method => :delete%>
+		</td>
+	</tr>
+<% end %>
+	</table>
+<% else %>
+ No heads Yet!
+ <% end %>

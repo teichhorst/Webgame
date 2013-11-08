@@ -1,0 +1,16 @@
+<%= link_to 'Back to Inventory', root_path %><br><br>
+
+<% @cities.each do |ci| %>
+
+<%= ci.display_name %> | Complexes: <%= ci.complexes.count %>
+<br>
+<% if ci == @user.city %>
+Current Location
+<% else %>
+<%= link_to 'Travel Here', travel_city_path(@user, :travel => ci) %> 
+(<%= ((@user.city.coordinate_x - ci.coordinate_x).abs + (@user.city.coordinate_y - ci.coordinate_y).abs) * 7 %> gold)
+<% end %>
+
+
+<br><br>
+<% end %>

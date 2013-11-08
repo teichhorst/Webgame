@@ -1,0 +1,23 @@
+<%= link_to 'Back to Inventory', root_path %><br><br>
+<% @hands.each do |ha| %>
+
+<%= ha.description %>
+<br>
+Speed Increase: <%= ha.min_speed %> - <%= ha.max_speed %>
+<br>
+Block: <%= ha.min_block %> - <%= ha.max_block %>
+<br>
+Bought for: <%= ha.buy %><br>
+Resale Value: <%= ha.sell%><br>
+<%= link_to 'Equip', equip_hand_path(ha) %>
+<% if ha.active == true %>
+| <%= link_to 'Unequip', unequip_hand_path(ha) %>
+<% end %><br>
+<%= link_to 'Sell', sell_hand_path(ha) %>
+
+<br>
+<Br>
+<% end %>
+
+
+

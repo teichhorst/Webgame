@@ -1,0 +1,24 @@
+<% @chests.each do |c| %>
+<%= c.display_name %>
+<br>
+Speed Decrease: <%= c.min_speed %> - <%= c.max_speed %>
+<br>
+Block: <%= c.min_block %> - <%= c.max_block %>
+<br>
+Cost: <%=c.buy %>
+<br>
+Resale Value: <%= c.sell %>
+<br><br>
+
+<% if current_user.gold >= c.buy %>
+<%= link_to 'Buy', buy_chest_path(c) %> 
+<% else %>
+Buy
+<% end %>
+
+| <%= link_to 'No Thanks', chest_path(c), :method => :delete %>
+<br><br>
+
+<% end %>
+<br>
+<%= link_to 'Try Again', chests_path, :method => :post %>

@@ -1,0 +1,23 @@
+<%= link_to 'Back to Inventory', root_path %><br><br>
+<% @guards.each do |g| %>
+
+<%= g.display_name %>
+<br>
+Health: <%= g.health %>
+<br>
+Damage: <%= g.min_damage %> - <%= g.max_damage %>
+<br>
+Speed: <%= g.min_speed %> - <%= g.max_speed %>
+<br>
+Block: <%= g.min_block %> - <%= g.max_block %>
+<br>
+Bought for: <%= g.buy %><br>
+Resale Value: <%= g.sell%><br>
+<%= link_to 'Sell', sell_guard_path(g) %>
+
+<br>
+<Br>
+<% end %>
+
+
+

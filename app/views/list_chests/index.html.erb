@@ -1,0 +1,82 @@
+<%= link_to 'Create New chest', new_list_chest_path %><br><br>
+
+<% if @list_chests != nil %>
+<table width='900px'>
+	<tr>
+		<td>
+			ID
+		</td>
+		<td>
+			Display Name
+		</td> 
+		<td>
+			Description
+		</td> 
+		<td>
+			Min Speed
+		</td> 
+		<td>
+			Max Speed
+		</td> 
+		<td>
+			Min Block
+		</td> 
+		<td>
+			Max Block
+		</td> 
+		<td>
+			Odds
+		</td> 
+		<td>
+			Image
+		</td>
+	</tr>
+	
+
+<% @list_chests.each do |c| %>
+
+	<tr>
+		
+			
+		
+		<td>
+			<%= c.id %>
+		</td>
+		<td>
+			<%= c.display_name %>
+		</td> 
+		<td>
+			<%= c.description %>
+		</td> 
+		<td>
+			<%= c.min_speed %>
+		</td> 
+		<td>
+			<%= c.max_speed %>
+		</td>
+		<td>
+			<%= c.min_block %>
+		</td> 
+		<td>
+			<%= c.max_block %>
+		</td> 
+		<td>
+			<%= c.odds %>
+		</td> 
+		<td>
+			<%= image_tag c.chest_image %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= link_to 'Edit', edit_list_chest_path(c)%>
+		</td>
+		<td>
+			<%= link_to 'Delete', list_chest_path(c), :method => :delete%>
+		</td>
+	</tr>
+<% end %>
+	</table>
+<% else %>
+ No chests Yet!
+ <% end %>

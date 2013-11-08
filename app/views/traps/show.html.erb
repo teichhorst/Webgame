@@ -1,0 +1,28 @@
+<% @traps.each do |t| %>
+<%= t.display_name %>
+<br>
+Health: <%= t.health %>
+<br>
+Damage: <%= t.min_damage %> - <%= t.max_damage %>
+<br>
+Speed: <%= t.min_speed %> - <%= t.max_speed %>
+<br>
+Block: <%= t.min_block %> - <%= t.max_block %>
+<br>
+Cost: <%= t.buy %>
+<br>
+Resale Value: <%= t.sell %>
+<br><br>
+
+<% if current_user.gold >= t.buy %>
+<%= link_to 'Buy', buy_trap_path(t) %> 
+<% else %>
+Buy
+<% end %>
+
+| <%= link_to 'No Thanks', trap_path(t), :method => :delete %>
+<br><br>
+
+<% end %>
+<br>
+<%= link_to 'Try Again', traps_path, :method => :post %>

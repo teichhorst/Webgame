@@ -1,0 +1,18 @@
+<%= form_for @list_weapon, :html => { :multipart => true } do |w| %>
+  
+    Display Name: <%= w.text_field :display_name, :placeholder => "Name that people will see..." %>
+    Description: <%= w.text_area :description, :placeholder => "A paragraph about the weapon..." %><br>
+    Minimum Block Roll: <%= w.text_field :min_block, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Block Roll: <%= w.text_field :max_block, :placeholder => "Must be higher than min!" %><br>
+    Minimum Damage Roll: <%= w.text_field :min_damage, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Damage Roll: <%= w.text_field :max_damage, :placeholder => "Must be higher than min!" %><br>
+    Minimum Speed Roll: <%= w.text_field :min_speed, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Speed Roll: <%= w.text_field :max_speed, :placeholder => "Must be higher than min!" %><br>
+    
+    Odds: <%= w.text_field :odds, :placeholder => "1 - 1000000" %><br>
+    
+    Image: <%= w.file_field :weapon_image %>
+    
+  <%= w.submit "Save Changes", :list_weapon => @list_weapon, :class => "btn btn-large btn-primary" %>
+
+<% end %>

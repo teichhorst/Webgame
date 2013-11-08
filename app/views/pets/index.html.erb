@@ -1,0 +1,22 @@
+<%= link_to 'Back to Inventory', root_path %><br><br>
+
+<% @pets.each do |p| %>
+
+<%= p.description %>
+<br>
+Health: <%= p.health %>
+<br>
+Damage: <%= p.min_damage %> - <%= p.max_damage %>
+<br>
+Speed: <%= p.min_speed %> - <%= p.max_speed %>
+<br>
+Block: <%= p.min_block %> - <%= p.max_block %>
+<br>
+Bought for: <%= p.buy %><br>
+Resale Value: <%= p.sell%><br>
+
+<%= link_to 'Sell', sell_pet_path(p) %>
+
+<br>
+<Br>
+<% end %>

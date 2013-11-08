@@ -1,0 +1,25 @@
+<% @hands.each do |ha| %>
+<%= ha.display_name %>
+<br>
+<%= image_tag ha.list_hand.hand_image %><br>
+Speed Increase: <%= ha.min_speed %> - <%= ha.max_speed %>
+<br>
+Block: <%= ha.min_block %> - <%= ha.max_block %>
+<br>
+Cost: <%=ha.buy %>
+<br>
+Resale Value: <%= ha.sell %>
+<br><br>
+
+<% if current_user.gold >= ha.buy %>
+<%= link_to 'Buy', buy_hand_path(ha) %> 
+<% else %>
+Buy
+<% end %>
+
+| <%= link_to 'No Thanks', hand_path(ha), :method => :delete %>
+<br><br>
+
+<% end %>
+<br>
+<%= link_to 'Try Again', hands_path, :method => :post %>

@@ -1,0 +1,82 @@
+<%= link_to 'Create New boot', new_list_boot_path %><br><br>
+
+<% if @list_boots != nil %>
+<table width='900px'>
+	<tr>
+		<td>
+			ID
+		</td>
+		<td>
+			Display Name
+		</td> 
+		<td>
+			Description
+		</td> 
+		<td>
+			Min Speed
+		</td> 
+		<td>
+			Max Speed
+		</td> 
+		<td>
+			Min Block
+		</td> 
+		<td>
+			Max Block
+		</td> 
+		<td>
+			Odds
+		</td> 
+		<td>
+			Image
+		</td>
+	</tr>
+	
+
+<% @list_boots.each do |b| %>
+
+	<tr>
+		
+			
+		
+		<td>
+			<%= b.id %>
+		</td>
+		<td>
+			<%= b.display_name %>
+		</td> 
+		<td>
+			<%= b.description %>
+		</td> 
+		<td>
+			<%= b.min_speed %>
+		</td> 
+		<td>
+			<%= b.max_speed %>
+		</td> 
+		<td>
+			<%= b.min_block %>
+		</td> 
+		<td>
+			<%= b.max_block %>
+		</td>
+		<td>
+			<%= b.odds %>
+		</td> 
+		<td>
+			<%= image_tag b.boot_image %>
+		</td>
+	</tr>
+	<tr>
+		<td>
+			<%= link_to 'Edit', edit_list_boot_path(b)%>
+		</td>
+		<td>
+			<%= link_to 'Delete', list_boot_path(b), :method => :delete%>
+		</td>
+	</tr>
+<% end %>
+	</table>
+<% else %>
+ No boots Yet!
+ <% end %>

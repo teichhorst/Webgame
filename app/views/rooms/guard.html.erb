@@ -1,0 +1,45 @@
+<%= link_to 'Back to rooms', rooms_path %><br><br>
+
+
+
+<% @guards.each do |g| %>
+
+<% if g.room == nil%>
+<%= g.display_name %>
+<br>
+Health: <%= g.health %>
+<br>
+Damage: <%= g.min_damage %> - <%= g.max_damage %>
+<br>
+Speed: <%= g.min_speed %> - <%= g.max_speed %>
+<br>
+Block: <%= g.min_block %> - <%= g.max_block %>
+<br>
+<%= link_to 'Assign to this room', change_room_guard_path(g, :room_to_equip => @room) %>
+
+<% else %>
+
+<%= g.display_name %>
+<br>
+Health: <%= g.health %>
+<br>
+Damage: <%= g.min_damage %> - <%= g.max_damage %>
+<br>
+Speed: <%= g.min_speed %> - <%= g.max_speed %>
+<br>
+Block: <%= g.min_block %> - <%= g.max_block %>
+<br>
+Currently stationed in Room <%= g.room.id %>
+<br>
+<% if g.room == @room %>
+<%= link_to 'Unassign Guard', discard_room_guard_path(g, :room_to_equip => @room) %>
+<% end %>
+
+<% end %>
+
+<br>
+<br>
+<% end %>
+
+
+

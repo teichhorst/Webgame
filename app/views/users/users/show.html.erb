@@ -1,0 +1,149 @@
+
+<div class='inventory_container'>
+
+	<div class='visual_container'>
+		<div class='inventory_1'>
+			
+			<div class='fill_1'>
+				<img src='/assets/img_fill1.png'>
+			</div>
+			<div class='weapon'>
+				<% if @weapon == nil%>
+				<img src='/assets/img_weapon.png'>
+				<% else %>
+				<%= image_tag @weapon.list_weapon.weapon_image %>
+				<% end %>
+			</div>
+			
+			<div class='ring'>
+				<% if @ring == nil %>
+				<img src='/assets/img_ring.png'>
+				<% else %>
+				<%= image_tag @ring.list_ring.ring_image %>
+				<% end %>
+			</div>
+		</div>	
+		
+		<div class='inventory_2'>
+			<% if @head == nil %>
+			<div class='head'>
+			<% else %>
+			<div class='head' style="background-color: <%= @head.color.hex_code %>;">
+			<% end %>
+				<% if @head == nil %>
+				<img src='/assets/img_head.png'>
+				<% else %>
+				<%= image_tag @head.list_head.head_image%>
+				<% end %>
+			</div>
+			
+			<div class='chest'>
+				<% if @chest == nil %>
+				<img src='/assets/img_chest.png'>
+				<% else %>
+				<%= image_tag @chest.list_chest.chest_image %>
+				<% end %>
+			</div>
+			
+			<% if @leg == nil %>
+			<div class='legs'>
+			<% else %>
+			<div class='legs' style="background-color: <%= @leg.color.hex_code %>;">
+			<% end %>
+				<% if @leg == nil %>
+				<img src='/assets/img_leg.png'>
+				<% else %>
+				<%= image_tag @leg.list_leg.leg_image %>
+				<% end %>
+			</div>
+			
+			<div class='boots'>
+				<% if @boot == nil%>
+				<img src='/assets/img_boot.png'>
+				<% else %>
+				<%= image_tag @boot.list_boot.boot_image %>
+				<% end %>
+			</div>	
+		</div>
+		<div class='inventory_3'>
+			<div class='fill_2'>
+				<img src='/assets/img_fill2.png'>
+			</div>
+			<div class='sidearm'>
+				<% if @sidearm == nil %>
+				<img src='/assets/img_sidearm.png'>
+				<% else %>
+				<%= image_tag @sidearm.list_sidearm.sidearm_image %>
+				<% end %>
+			</div>
+			<div class='hands'>
+				<% if @hand == nil %>
+				<img src='/assets/img_hand.png'>
+				<% else %>
+				<%= image_tag @hand.list_hand.hand_image %>
+				<% end %>
+			</div>
+		</div>
+		
+	</div>
+	
+	<div class='stats_container'>
+		<div class='stats_row'>
+			<div class='stats_column'>
+				<h3>Gold</h3>
+				<%= @user.gold %>
+			</div>
+			<div class='stats_column'>
+				<h3>Health</h3>
+				<%= @user.health %>
+			</div>
+		</div>
+		<div class='stats_row'>
+			<%= link_to 'Heads', heads_path %> | <%= link_to 'Legs', legs_path %> | <%= link_to 'Hands', hands_path %> | <%= link_to 'chests', chests_path %> | <%= link_to 'Rings', rings_path %>
+			| <%= link_to 'Weapons', weapons_path %> | <%= link_to 'Sidearms', sidearms_path %> | <%= link_to 'Boots', boots_path %>
+			| <%= link_to 'Guards', guards_path %>
+			| <%= link_to 'Pets', pets_path %>
+			| <%= link_to 'Traps', traps_path %>
+		<h1>Shop</h1>
+			
+		<div class='shop_container'>
+			<div class='shop_row'>
+				<%= link_to 'Copper Capsule', buy_box_path(:description => 'Copper')%> 
+			</div>
+			<div class='shop_row'>
+				<%= link_to 'Silver Capsule', buy_box_path(:description => 'Silver')%> 
+			</div>
+			<div class='shop_row'>
+				<%= link_to 'Gold Capsule', buy_box_path(:description => 'Gold')%> 
+			</div>
+			<div class='shop_row'>
+				<%= link_to 'Ruby Capsule', buy_box_path(:description => 'Ruby')%> 
+			</div>
+			<div class='shop_row'>
+				<%= link_to 'Onyx Capsule', buy_box_path(:description => 'Onyx')%> 
+			</div>
+			<div class='shop_row'>
+				<%= link_to 'Sun Capsule', buy_box_path(:description => 'Sun')%> 
+			</div>
+		</div>
+		</div>
+	</div>
+	
+</div>
+
+	
+
+
+
+
+
+<br>
+<% if current_user.admin == true %>
+Admin Tools:<br>
+<%= link_to 'Guards', list_guards_path %> | <%= link_to 'Traps', list_traps_path %> | <%= link_to 'Pets', list_pets_path %> | <%= link_to 'Heads', list_heads_path %>
+ | <%= link_to 'Hands', list_hands_path %> | <%= link_to 'Rings', list_rings_path %> | <%= link_to 'Chests', list_chests_path %> | <%= link_to 'Legs', list_legs_path %>
+  | <%= link_to 'Boots', list_boots_path %> | <%= link_to 'Weapons', list_weapons_path %> | <%= link_to 'Sidearms', list_sidearms_path %> | <%= link_to 'Colors', colors_path %>
+<% end %>
+
+
+

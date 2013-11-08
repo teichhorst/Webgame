@@ -1,0 +1,24 @@
+<% @boots.each do |b| %>
+<%= b.display_name %>
+<br>
+Speed Increase: <%= b.min_speed %> - <%= b.max_speed %>
+<br>
+Block: <%= b.min_block %> - <%= b.max_block %>
+<br>
+Cost: <%=b.buy %>
+<br>
+Resale Value: <%= b.sell %>
+<br><br>
+
+<% if current_user.gold >= b.buy %>
+<%= link_to 'Buy', buy_boot_path(b) %> 
+<% else %>
+Buy
+<% end %>
+
+| <%= link_to 'No Thanks', boot_path(b), :method => :delete %>
+<br><br>
+
+<% end %>
+<br>
+<%= link_to 'Try Again', boots_path, :method => :post %>

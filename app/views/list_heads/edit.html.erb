@@ -1,0 +1,16 @@
+<%= form_for @list_head, :html => { :multipart => true } do |h| %>
+  
+    Display Name: <%= h.text_field :display_name, :placeholder => "Name that people will see..." %>
+    Description: <%= h.text_area :description, :placeholder => "A paragraph about the head..." %><br>
+    Minimum Block Roll: <%= h.text_field :min_block, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Block Roll: <%= h.text_field :max_block, :placeholder => "Must be higher than min!" %><br>
+    Minimum Speed Roll: <%= h.text_field :min_speed, :placeholder => "ex.. 8, or 1 + rand(10)" %><br>
+    Maximum Speed Roll: <%= h.text_field :max_speed, :placeholder => "Must be higher than min!" %><br>
+    
+    Odds: <%= h.text_field :odds, :placeholder => "1 - 1000000" %><br>
+    
+    Image: <%= h.file_field :head_image %>
+    
+  <%= h.submit "Save Changes", :list_head => @list_head, :class => "btn btn-large btn-primary" %>
+
+<% end %>

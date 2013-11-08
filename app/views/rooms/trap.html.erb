@@ -1,0 +1,42 @@
+<%= link_to 'Back to rooms', rooms_path %><br><br>
+
+
+
+<% @traps.each do |t| %>
+
+<% if t.room == nil%>
+<%= t.display_name %>
+<br>
+Health: <%= t.health %>
+<br>
+Damage: <%= t.min_damage %> - <%= t.max_damage %>
+<br>
+Speed: <%= t.min_speed %> - <%= t.max_speed %>
+<br>
+Block: <%= t.min_block %> - <%= t.max_block %>
+<br>
+<%= link_to 'Assign to this room', change_room_trap_path(t, :room_to_equip => @room) %>
+
+<% else %>
+
+<%= t.display_name %>
+<br>
+Health: <%= t.health %>
+<br>
+Damage: <%= t.min_damage %> - <%= t.max_damage %>
+<br>
+Speed: <%= t.min_speed %> - <%= t.max_speed %>
+<br>
+Block: <%= t.min_block %> - <%= t.max_block %>
+<br>
+Currently stationed in Room <%= t.room.id %>
+<br>
+<% if t.room == @room %>
+<%= link_to 'Unassign Trap', discard_room_trap_path(t, :room_to_equip => @room) %>
+<% end %>
+
+<% end %>
+
+<br>
+<br>
+<% end %>

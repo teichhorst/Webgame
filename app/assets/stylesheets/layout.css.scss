@@ -1,0 +1,385 @@
+html {
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  margin: 0;
+  background-color: #fff;
+  color: #000;
+  padding: 0;
+  font-family: arial;
+}
+
+.container {
+  width: 1000px;
+  height: auto;
+  margin: 0 auto;
+  background: #fff;
+}
+
+.header {
+  height: 160px;
+  width: 1000px;
+  margin: 0;
+  padding: 0;
+  color: #fff;
+}
+
+.header_title {
+  width: 100%;
+  margin: 20px 0 -42px 0;
+  font-size: 14pt;
+  font-weight: bold;
+  text-align: center;
+}
+
+.header_location {
+  background: url('/assets/img_location_top_bg.png') no-repeat;
+  width: 238px;
+  height: 152px;
+  float: left;
+  margin-right: 38px;
+}
+
+.header_user {
+  background: url('/assets/img_user_top_bg.png') no-repeat;
+  width: 448px;
+  height: 152px;
+  float: left;
+  margin-right: 38px;
+}
+
+.header_rooms {
+  background: url('/assets/img_rooms_top_bg.png') no-repeat;
+  width: 238px;
+  height: 152px;
+  float: left;
+}
+
+//Header Buttons
+
+.button_directory {
+  background: url('/assets/img_button_directory.png');
+  width: 119px;
+  height: 77px;
+  margin-top: 75px;
+  float: left;
+}
+
+.button_directory:hover {
+  background: url('/assets/img_button_directory_hl.png');
+}
+
+.button_travel {
+  background: url('/assets/img_button_travel.png');
+  width: 119px;
+  height: 77px;
+  margin-top: 75px;
+  float: left;
+}
+
+.button_travel:hover {
+  background: url('/assets/img_button_travel_hl.png');
+}
+
+.button_inventory {
+  background: url('/assets/img_button_inventory.png');
+  width: 119px;
+  height: 77px;
+  margin-top: 75px;
+  float: left;
+}
+
+.button_inventory:hover {
+  background: url('/assets/img_button_inventory_hl.png');
+}
+
+.button_capsules {
+  background: url('/assets/img_button_capsules.png');
+  width: 105px;
+  height: 77px;
+  margin-top: 75px;
+  float: left;
+}
+
+.button_capsules:hover {
+  background: url('/assets/img_button_capsules_hl.png');
+}
+
+.button_missions {
+  background: url('/assets/img_button_missions.png');
+  width: 105px;
+  height: 77px;
+  margin-top: 75px;
+  float: left;
+}
+
+.button_missions:hover {
+  background: url('/assets/img_button_missions_hl.png');
+}
+
+.button_logout {
+  background: url('/assets/img_button_logout.png');
+  width: 119px;
+  height: 77px;
+  margin-top: 75px;
+  float: left;
+}
+
+.button_logout:hover {
+  background: url('/assets/img_button_logout_hl.png');
+}
+
+.button_steal {
+  background: url('/assets/img_button_steal.png');
+  width: 119px;
+  height: 77px;
+  margin-top: 75px;
+  float: left;
+}
+
+.button_steal:hover {
+  background: url('/assets/img_button_steal_hl.png');
+}
+
+.button_rooms {
+  background: url('/assets/img_button_rooms.png');
+  width: 119px;
+  height: 77px;
+  margin-top: 75px;
+  float: left;
+}
+
+.button_rooms:hover {
+  background: url('/assets/img_button_rooms_hl.png');
+}
+
+//Alerts and messages
+
+p.alert {
+  text-align: center;
+  position: relative;
+  width: 1000px;
+}
+
+p.notice {
+  text-align: center;
+  position: relative;
+  width: 1000px;
+}
+
+// Top Row Container
+
+.top_row_container {
+  width: 100%;
+  overflow: auto;
+}
+
+// Top Row of Main page
+
+.user_container {
+  width: 210px;
+  padding: 20px;
+  height: 200px;
+  margin: 10px 0;
+  float: left;
+}
+
+.city_container {
+  width: 210px;
+  padding: 20px;
+  height: 200px;
+  margin: 10px 0;
+  float: left;
+}
+
+.room_container {
+  width: 210px;
+  padding: 20px;
+  height: 200px;
+  margin: 10px 0;
+  float: left;
+}
+
+.capsule_container {
+  width: 210px;
+  padding: 20px;
+  height: 200px;
+  margin: 10px 0;
+  float: left;
+}
+
+// Inventory Container
+
+.inventory_container {
+  height: 600px;
+  border: 10px solid #476F3B;
+  border-radius: 8px;
+}
+
+// Stats Container
+
+.stats_container {
+  width: 440px;
+  float: left;
+  margin-left: 20px;
+}
+
+// Visual Container
+
+.visual_container {
+  width: 490px;
+  overflow: auto;
+  float: left;
+  a {
+    color: #333333;
+  }
+  a:hover {
+    color: #333333;
+  }
+  p {
+    margin: 2px 0 2px 0;
+    font-size: 10pt;
+  }
+}
+
+.inventory_title {
+  width: 510px;
+  height: 32px;
+  margin: 10px 0 21px 0;
+  background: url('/assets/inventory_title.png') center no-repeat;
+}
+
+.inventory_1 {
+  width: 120px;
+  height: 480px;
+  overflow: hidden;
+  float: left;
+}
+
+.inventory_2 {
+  width: 250px;
+  height: 480px;
+  overflow: hidden;
+  float: left;
+}
+
+.inventory_3 {
+  width: 120px;
+  height: 480px;
+  overflow: hidden;
+  float: left;
+}
+
+// Inventory Visual Items
+
+.sidearm {
+  width: 120px;
+  height: 250px;
+}
+
+.sidearm:hover {
+}
+
+.ring {
+  width: 120px;
+  height: 80px;
+}
+
+.ring:hover {
+}
+
+.ring_fill {
+  float: left;
+  height: 150px;
+  width: auto;
+}
+
+.fill_1 {
+  width: 120px;
+  height: 150px;
+}
+
+.head {
+  width: 250px;
+  height: 150px;
+}
+
+.head:hover {
+}
+
+.chest {
+  width: 250px;
+  height: 115px;
+}
+
+.chest:hover {
+}
+
+.legs {
+  width: 250px;
+  height: 145px;
+}
+
+.legs:hover {
+}
+
+.boots {
+  width: 250px;
+  height: 70px;
+}
+
+.boots:hover {
+}
+
+
+.hands {
+  width: 120px;
+  height: 80px;
+}
+
+.hands:hover {
+}
+
+.hands_fill {
+  height: 150px;
+  width: 70;
+}
+
+.fill_2 {
+  width: 120px;
+  height: 150px;
+}
+
+.weapon {
+  width: 120px;
+  height: 250px;
+}
+
+.weapon:hover {
+}
+
+// Inventory Stat Items
+
+.stats_row {
+  display: inline-block;
+  width: 100%;
+}
+
+.stats_column {
+  float: left;
+  margin-right: 20px;
+}
+
+.head_stats {
+}
+
+// Shop Container
+
+.shop_container {
+  position: relative;
+  
+}
+
+
